@@ -3,63 +3,149 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
+import weatherBg from "../assets/cloudy.gif";
 
 
 
 const Home = () => {
-    const [city, setCity] = useState("");
-    const [weather, setWeather] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        if (city.trim() !== "") {
-            fetchWeather(city);
+  const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
+  {/*Load saved city or default to Lagos*/}
+  useEffect(() => {
+    const lastCity = localStorage.getItem("lastCity");
+    const initialCity = lastCity || "Lagos";
+    setCity(initialCity);
+    fetchWeather(initialCity);
+  }, []);
+
+   {/*Fetch weather data*/}
+  const fetchWeather = async (cityName) => {
+    try {
+      setLoading(true);
+      setError("");
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
+      );
+      setWeather(res.data);
+      setLoading(false);
+      localStorage.setItem("lastCity", cityName);
+    } catch (err) {
+      setLoading(false);
+      setError("City not found. Please try again.");
+    }
+  };
+
+  {/*Handle city search*/}
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (city.trim() !== "") {
+      fetchWeather(city);
+    }
+  };
+
+  {/*Use My Location*/} 
+  const handleUseMyLocation = () => {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          const res = await axios.get(
+            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
+          );
+          setWeather(res.data);
+          setCity(res.data.name);
+          localStorage.setItem("lastCity", res.data.name);
+        } catch (error) {
+          setError("Unable to fetch weather for your location.");
         }
-    };
-
-    useEffect(() => {
-        const lastCity = localStorage.getItem("lastCity"); 
-        if (lastCity) {
-            setCity(lastCity);
-            fetchWeather(lastCity);
-        } else {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    async (poition) => {
-                        const { latitude, longitude } = poition.coords;
-                        try {
-                            const res = await axios.get(
-                               `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric` 
-                            );
-                            setWeather(res.data);
-                            setCity(res.data.name);
-                            localStorage.setItem("lastCity", res.data.name);
-                        } catch {
-                            setError("Unable to fetch weather for your Location.");
-                        }
-                    },
-                    () => {
-                        setError("Location access denied. Please search manually.");
-                    }
-                );
-            } else {
-                setError("Geolocation not supported on this device.");
-            }
-        }
-    },
-
-    []);
-
-
+      },
+      () => {
+        alert("Unable to retrieve your location.");
+      }
+    );
+  };
 
   return (
-    <div>
-      <h1>My name</h1>
-    </div>
-  )
-}
+    <div className="min-h-screen flex flex-col items-center justify-center text-white p-4 relative bg-cover bg-center"
+  style={{ backgroundImage: `url(${weatherBg})` }}>
+    
+      {/* Settings icon */}
+      <Link
+        to="/settings"
+        className="absolute top-5 right-5 text-white text-2xl hover:opacity-80"
+      >
+        <FiSettings />
+      </Link>
 
-export default Home
+      <h1 className="text-3xl font-black mb-6">SkyCast</h1>
+
+      {/* Search bar */}
+      <form
+        onSubmit={handleSearch}
+        className="flex items-center gap-2 mb-4 px-10 w-full max-w-md"
+      >
+      <input
+        type="text"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        placeholder="  Search for a city..."
+        className="w-full pl-4 pr-4 rounded-lg bg-white/20 backdrop-blur-md text-white placeholder-white/70 outline focus:ring-2 focus:ring-blue-400"
+      />
+        <button
+          type="submit"
+          className="flex items-center outline focus:ring-blue-400 rounded-lg pl-2 pr-2 hover:bg-blue-700 transition"
+        >
+          Search
+        </button>
+      </form>
+
+      {/* Use My Location button */}
+      <button
+        onClick={handleUseMyLocation}
+        className="flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-lg hover:bg-blue-700 transition mb-6"
+      >
+        <FiMapPin /> Use My Location
+      </button>
+
+      {/* Weather card */}
+      {loading ? (
+        <p>Loading weather...</p>
+      ) : error ? (
+        <p className="text-red-300">{error}</p>
+      ) : weather ? (
+        <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl shadow-lg text-center">
+          <h2 className="text-2xl font-semibold">{weather.name}</h2>
+          <p className="text-lg mt-2 capitalize">
+            {weather.weather[0].description}
+          </p>
+          <p className="text-5xl font-bold mt-4">
+            {Math.round(weather.main.temp)}°C
+          </p>
+          <div className="flex justify-center gap-8 mt-4">
+            <p>Humidity: {weather.main.humidity}%</p>
+            <p>Wind: {weather.wind.speed} m/s</p>
+          </div>
+          <button
+            onClick={() => navigate(`/details/${weather.name}`)}
+            className="mt-6 bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200"
+          >
+            View Details
+          </button>
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+export default Home;
