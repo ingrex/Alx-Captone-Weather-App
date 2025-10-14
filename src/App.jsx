@@ -3,6 +3,7 @@ import Onboarding1 from "./components/onboarding/Onboarding1";
 import Onboarding2 from "./components/onboarding/Onboarding2";
 import Onboarding3 from "./components/onboarding/Onboarding3";
 import Home from "./pages/Home";
+import Details from "./pages/Details";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/onboarding3" element={<Onboarding3 />} />
 
           <Route path="/home" element={<Home />} />
+          <Route path="/details/:city" element={<Details />} />
         </Routes>
       </div>
     </div>

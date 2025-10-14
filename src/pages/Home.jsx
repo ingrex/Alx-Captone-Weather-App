@@ -79,7 +79,7 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-white p-4 relative bg-cover bg-center"
   style={{ backgroundImage: `url(${weatherBg})` }}>
-    
+
       {/* Settings icon */}
       <Link
         to="/settings"
@@ -138,7 +138,7 @@ const Home = () => {
           </div>
           <button
             onClick={() => navigate(`/details/${weather.name}`)}
-            className="mt-6 bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200"
+            className="mt-6 bg-black/40 text-blue-100 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200"
           >
             View Details
           </button>
