@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import weatherBg from "../assets/cloudy.gif";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 
 const Details = () => {

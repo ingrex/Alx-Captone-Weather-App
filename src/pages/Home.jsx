@@ -113,7 +113,7 @@ const Home = () => {
       {/* Use My Location button */}
       <button
         onClick={handleUseMyLocation}
-        className="flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-lg hover:bg-blue-700 transition mb-6"
+        className="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-700 transition mb-6"
       >
         <FiMapPin /> Use My Location
       </button>
@@ -138,7 +138,7 @@ const Home = () => {
           </div>
           <button
             onClick={() => navigate(`/details/${weather.name}`)}
-            className="mt-6 bg-black/40 text-blue-100 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200"
+            className="mt-6 bg-black/40 text-blue-100 px-4 py-2 rounded-lg font-semibold hover:bg-blue-800"
           >
             View Details
           </button>
