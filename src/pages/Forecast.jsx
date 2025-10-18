@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FiArrowLeft } from "react-icons/fi";
 import weatherBg from "../assets/ClearNight1.jpg";
+import AppLogo from "../services/AppLogo";
 
 const Forecast = () => {
   const { city } = useParams();
@@ -37,6 +38,11 @@ const Forecast = () => {
       className="bg-cover bg-no-repeat min-h-screen p-6 text-white"
       style={{ backgroundImage: `url(${weatherBg})` }}
     >
+          {/* Logo */}
+    <div className="">
+      <AppLogo />
+    </div>
+
       <button
         onClick={() => navigate("/home")}
         className="absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"

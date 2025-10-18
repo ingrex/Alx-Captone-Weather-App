@@ -4,6 +4,7 @@ import axios from "axios";
 import weatherBg from "../assets/cloudy.gif";
 import { FiHeart } from "react-icons/fi";
 import { FiArrowLeft } from "react-icons/fi";
+import AppLogo from "../services/AppLogo";
 
 
 const Details = () => {
@@ -65,7 +66,11 @@ const Details = () => {
     <div className="min-h-screen flex flex-col items-center justify-center text-white p-4" style={{
         backgroundImage: `url(${weatherBg})`, backgroundSize: "cover", backgroundPosition: "center",
     }}>
-
+    {/* Logo */}
+    <div className="">
+      <AppLogo />
+    </div>
+    
         <button onClick={() => navigate("/home")} className="absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"><FiArrowLeft className="text-lg"/> <span>back</span> </button>
 
 
