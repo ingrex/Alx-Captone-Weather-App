@@ -32,7 +32,7 @@ const Forecast = () => {
 
 
   return (
-    <div className=" bg-cover min-h-screen p-6 " style={{ backgroundImage: `url(${weatherBg})` }}>
+    <div className="  bg-cover bg-no-repeat  min-h-screen p-6 " style={{ backgroundImage: `url(${weatherBg})` }}>
 
         <button onClick={() => navigate("/home")} className="text-white mb-1 fixed flex items-center gap-1 bg-black/25"><FiArrowLeft/> Home </button>
 

@@ -88,7 +88,7 @@ const Home = () => {
         <FiSettings />
       </Link>
 
-      <h1 className="text-3xl font-black mb-6">SkyCast</h1>
+      <h1 className="text-5xl font-black mb-10">SkyCast</h1>
 
       {/* Search bar */}
       <form
