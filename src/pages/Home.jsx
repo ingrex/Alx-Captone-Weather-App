@@ -13,13 +13,14 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [unit, setUnit] = useState(localStorage.getItem("unit") || "metric");
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
   {/*Load saved city or default to Lagos*/}
   useEffect(() => {
     const lastCity = localStorage.getItem("lastCity");
-    const initialCity = lastCity || "Lagos";
+    const initialCity = lastCity || "";
     setCity(initialCity);
     fetchWeather(initialCity);
   }, []);
@@ -30,7 +31,7 @@ const Home = () => {
       setLoading(true);
       setError("");
       const res = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${unit}`
       );
       setWeather(res.data);
       setLoading(false);
@@ -61,7 +62,7 @@ const Home = () => {
         const { latitude, longitude } = position.coords;
         try {
           const res = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`
           );
           setWeather(res.data);
           setCity(res.data.name);
@@ -130,7 +131,7 @@ const Home = () => {
             {weather.weather[0].description}
           </p>
           <p className="text-5xl font-bold mt-4">
-            {Math.round(weather.main.temp)}°C
+            {Math.round(weather.main.temp)}° {unit === "metric" ? "C" : "F"}
           </p>
           <div className="flex justify-center gap-8 mt-4">
             <p>Humidity: {weather.main.humidity}%</p>

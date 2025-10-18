@@ -111,7 +111,7 @@ const Details = () => {
 
         </div>
         <button className="mt-6 bg-yellow-400 text-blue-900 font-semibold px-5 py-2 rounded-xl shadow hover:bg-yellow-300 transition">
-        ⭐ Add to Favorites
+         Add to Favorites
       </button>
       
     </div>
