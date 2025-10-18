@@ -34,7 +34,7 @@ const Forecast = () => {
   return (
     <div className="  bg-cover bg-no-repeat  min-h-screen p-6 " style={{ backgroundImage: `url(${weatherBg})` }}>
 
-        <button onClick={() => navigate("/home")} className="text-white mb-1 fixed flex items-center gap-1 bg-black/25"><FiArrowLeft/> Home </button>
+        <button onClick={() => navigate("/home")} className="absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"><FiArrowLeft className="text-lg"/> <span>Home</span> </button>
 
         <div className="text-center "> 
             <img src={`https://openweathermap.org/img/wn/${current.weather[0].icon}@4x.png`} alt="weather condition icon"  className="mx-auto mb-3 w-40 h-40 "/>

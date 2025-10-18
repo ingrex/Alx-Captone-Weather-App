@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import weatherBg from "../assets/cloudy.gif";
-import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { FiHeart } from "react-icons/fi";
+import { FiArrowLeft } from "react-icons/fi";
 
 
 const Details = () => {
@@ -65,9 +66,7 @@ const Details = () => {
         backgroundImage: `url(${weatherBg})`, backgroundSize: "cover", backgroundPosition: "center",
     }}>
 
-        <button onClick={() => navigate("/home")} className="absolute top-5 left-5 bg-black/25 px-1 text-sm rounded ">
-             ← Back
-        </button>
+        <button onClick={() => navigate("/home")} className="absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"><FiArrowLeft className="text-lg"/> <span>back</span> </button>
 
 
         {/*Weather detils section */}
@@ -110,8 +109,8 @@ const Details = () => {
             </button>
 
         </div>
-        <button className="mt-6 bg-yellow-400 text-blue-900 font-semibold px-5 py-2 rounded-xl shadow hover:bg-yellow-300 transition">
-         Add to Favorites
+        <button className="p-3 bg-white/10 rounded-full shadow-md hover:bg-red-100/20 transition" title="Add to Favorites">
+         <FiHeart className="text-2xl text-red-400"/>
       </button>
       
     </div>
