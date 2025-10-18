@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
 import weatherBg from "../assets/cloudy.gif";
+import AppLogo from "../services/AppLogo";
 
 
 
@@ -80,6 +81,11 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-white p-4 relative bg-cover bg-center"
   style={{ backgroundImage: `url(${weatherBg})` }}>
+
+    {/* Logo */}
+    <div className="">
+      <AppLogo />
+    </div>
 
       {/* Settings icon */}
       <Link
