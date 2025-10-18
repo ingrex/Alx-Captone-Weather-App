@@ -5,6 +5,7 @@ import Onboarding3 from "./components/onboarding/Onboarding3";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Forecast from "./pages/Forecast";
+import Settings from "./pages/Settings";
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/details/:city" element={<Details />} />
           <Route path="/forecast/:city" element={<Forecast />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
     </div>

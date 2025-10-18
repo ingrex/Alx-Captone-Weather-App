@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FiArrowLeft } from "react-icons/fi";
-import weatherBg from "../assets/ClearNight.jpg";
+import weatherBg from "../assets/ClearNight1.jpg";
 
 
 
