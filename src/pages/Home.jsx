@@ -52,6 +52,7 @@ const Home = () => {
   };
 
   {/*Use My Location*/} 
+  
   const handleUseMyLocation = () => {
     if (!navigator.geolocation) {
       alert("Geolocation is not supported by your browser.");

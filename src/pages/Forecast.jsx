@@ -39,13 +39,13 @@ const Forecast = () => {
       style={{ backgroundImage: `url(${weatherBg})` }}
     >
           {/* Logo */}
-    <div className="">
+    <div>
       <AppLogo />
     </div>
 
       <button
         onClick={() => navigate("/home")}
-        className="absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"
+        className="fixed absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"
       >
         <FiArrowLeft className="text-lg" />
         <span>Home</span>
