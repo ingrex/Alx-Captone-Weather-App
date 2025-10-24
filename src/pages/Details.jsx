@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FiSettings } from "react-icons/fi";
 import weatherBg from "../assets/cloudy.gif";
 import { FiHeart } from "react-icons/fi";
 import { FiArrowLeft } from "react-icons/fi";
@@ -66,10 +67,20 @@ const Details = () => {
     <div className="min-h-screen flex flex-col items-center justify-center text-white p-4" style={{
         backgroundImage: `url(${weatherBg})`, backgroundSize: "cover", backgroundPosition: "center",
     }}>
+
+        
     {/* Logo */}
-    <div className="">
+    <div>
       <AppLogo />
     </div>
+
+      <Link
+        to="/settings"
+        className="absolute top-5 right-5 text-white text-2xl hover:opacity-80"
+      >
+        <FiSettings />
+      </Link>
+    
     
         <button onClick={() => navigate("/home")} className="absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"><FiArrowLeft className="text-lg"/> <span>back</span> </button>
 
