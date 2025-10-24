@@ -63,7 +63,7 @@ const Forecast = () => {
         <p className="text-xl capitalize">{current.weather[0].description}</p>
       </div>
 
-      {/* Hourly Forecast */}
+      {/*3-Hourly Forecast */}
       <div className="mt-10">
         <h2 className="text-lg font-semibold mb-3">3-Hour Forecast</h2>
         <div className="flex overflow-x-scroll space-x-4 pb-2 scrollbar-hide">
@@ -78,7 +78,7 @@ const Forecast = () => {
                 alt="icon"
                 className="mx-auto w-10 h-10"
               />
-              <p className="font-semibold mt-2">{Math.round(hour.main.temp)}°</p>
+              <p className="font-semibold mt-2">{Math.round(hour.main.temp)}°{unit === "metric" ? "C" : "F"}</p>
               <p className="text-xs opacity-80 mt-1">{hour.main.humidity}%</p>
             </div>
           ))}
