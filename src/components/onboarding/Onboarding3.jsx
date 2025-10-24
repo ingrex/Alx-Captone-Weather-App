@@ -36,7 +36,7 @@ const Onboarding3 = () => {
  
  
           {/*Text*/}
-       <h1 className="flex justify-center items-center gap-2 mt-6">Allow Location Access <br /> for Local Weather Updates</h1>
+       <h1 className="text-2xl font-semibold text-white mb-4 leading-snug">Allow Location Access <br /> for Local Weather Updates</h1>
  
          {/*Pagination Dots */}
  
