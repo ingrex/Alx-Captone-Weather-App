@@ -82,7 +82,7 @@ const Details = () => {
       </Link>
     
     
-        <button onClick={() => navigate("/home")} className="absolute top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"><FiArrowLeft className="text-lg"/> <span>back</span> </button>
+        <button onClick={() => navigate("/home")} className="fixed top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"><FiArrowLeft className="text-lg"/> <span>back</span> </button>
 
 
         {/*Weather detils section */}
@@ -120,7 +120,7 @@ const Details = () => {
             
             <p className="mt-5 text-sm italic text-white/90">{getActivityMessage(weather.weather[0].description)}</p>
 
-            <button onClick={() => navigate(`/forecast/${weather.name}`)} className="mt-4 bg-black/40 text-white px-3 py-2 rounded-full text-bold">
+            <button onClick={() => navigate(`/forecast/${weather.name}`)} className=" mt-4 bg-black/40 text-white px-3 py-2 rounded-full text-bold">
                 view Forecast
             </button>
 

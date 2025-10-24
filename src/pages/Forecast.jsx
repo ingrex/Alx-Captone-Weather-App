@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FiArrowLeft } from "react-icons/fi";
+import { FiSettings } from "react-icons/fi";
 import weatherBg from "../assets/ClearNight1.jpg";
 import AppLogo from "../services/AppLogo";
 
@@ -42,6 +43,14 @@ const Forecast = () => {
     <div>
       <AppLogo />
     </div>
+
+          <Link
+            to="/settings"
+            className="absolute top-5 right-5 text-white text-2xl hover:opacity-80"
+          >
+            <FiSettings />
+          </Link>
+        
 
       <button
         onClick={() => navigate("/home")}
