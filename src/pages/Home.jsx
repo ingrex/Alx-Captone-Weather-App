@@ -91,7 +91,7 @@ const Home = () => {
       {/* Settings icon */}
       <Link
         to="/settings"
-        className="absolute top-5 right-5 text-white text-2xl hover:opacity-80"
+        className="fixed top-5 right-5 text-white text-2xl hover:opacity-80"
       >
         <FiSettings />
       </Link>
@@ -138,7 +138,7 @@ const Home = () => {
             {weather.weather[0].description}
           </p>
           <p className="text-5xl font-bold mt-4">
-            {Math.round(weather.main.temp)}° {unit === "metric" ? "C" : "F"}
+            {Math.round(weather.main.temp)}°{unit === "metric" ? "C" : "F"}
           </p>
           <div className="flex justify-center gap-8 mt-4">
             <p>Humidity: {weather.main.humidity}%</p>
