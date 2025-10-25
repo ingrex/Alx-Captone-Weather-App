@@ -18,9 +18,6 @@ const Settings = () => {
    };
 
 
-
-
-
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-200 to-blue-400 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white px-4 transition-all duration-500">
 

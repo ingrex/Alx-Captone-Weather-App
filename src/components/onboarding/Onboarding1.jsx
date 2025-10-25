@@ -15,6 +15,8 @@ const Onboarding1 = () => {
         <p className='text-white/90 font-semibold mb-6 text-2x1'>Your ultimate weather companion <br /> stay informed anytime, anywhere.</p>
 
 
+        {/*Pagination Dots */}
+
         <div className='flex justify-center items-center gap-2 mt-6 mb-10'>
             <span className='w-2.5 h-2.5 bg-white rounded-full'></span>
             <span className='w-2.5 h-2.5 bg-gray-400 rounded-full'></span>

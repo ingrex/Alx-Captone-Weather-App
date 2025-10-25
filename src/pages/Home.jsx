@@ -21,7 +21,7 @@ const Home = () => {
   {/*Load saved city or default to Lagos*/}
   useEffect(() => {
     const lastCity = localStorage.getItem("lastCity");
-    const initialCity = lastCity || "";
+    const initialCity = lastCity || "Lagos";
     setCity(initialCity);
     fetchWeather(initialCity);
   }, []);

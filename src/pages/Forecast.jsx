@@ -30,7 +30,7 @@ const Forecast = () => {
   if (!forecast) return <p className="text-center mt-20 text-white">Loading...</p>;
 
   const current = forecast.list[0];
-  const hourlyForecasts = forecast.list.slice(0, 6);
+  const hourlyForecasts = forecast.list.slice(0, 5);
   const days = forecast.list.filter((_, index) => index % 8 === 0).slice(0, 5);
   const symbol = unit === "metric" ? "C" : "F";
 
@@ -67,6 +67,7 @@ const Forecast = () => {
           className="mx-auto mb-3 w-40 h-40"
         />
         <h1 className="text-6xl font-bold mb-2">
+          <h2 className="text-3xl font-semibold mb-1 capitalize">{city}</h2>
           {Math.round(current.main.temp)}°{unit === "metric" ? "C" : "F"}
         </h1>
         <p className="text-xl capitalize">{current.weather[0].description}</p>

@@ -88,7 +88,7 @@ const Details = () => {
         {/*Weather detils section */}
 
        
-        <div className="w-full max-w-xs bg-white/30 backdrop-blur-lg rounded-3xl p-6 shaadow-lg text-center">
+        <div className="w-full max-w-xs bg-white/30 backdrop-blur-lg rounded-3xl p-6 shadow-lg text-center">
             <h2 className="text-2x1 font-semibold">{weather.name}</h2>
             <p className="text-6xl font-bold mt-2">
                 {Math.round(weather.main.temp)}°
