@@ -5,7 +5,7 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const Settings = () => {
     const navigate = useNavigate();
-    const previousPage = location.state?.from;
+    
 
     const [unit, setUnit] = useState(localStorage.getItem ("unit") || "metric");
 

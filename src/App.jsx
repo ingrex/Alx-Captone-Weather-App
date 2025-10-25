@@ -6,9 +6,16 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Forecast from "./pages/Forecast";
 import Settings from "./pages/Settings";
+import Footer from "./services/Footer";
+import { useLocation } from "react-router-dom";
 
 
 const App = () => {
+
+  const location = useLocation();
+  const hideFooter = ["/", "/onboarding2", "/onboarding3"].includes(location.pathname);
+
+  
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <div>
@@ -24,6 +31,8 @@ const App = () => {
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
+      
+      {!hideFooter && <Footer />}
     </div>
   );
 };

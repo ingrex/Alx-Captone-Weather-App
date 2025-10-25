@@ -5,7 +5,9 @@ import onboarding1 from "../../assets/logo1.png"
 
 
 const Onboarding1 = () => {
+
     const navigate = useNavigate();
+    
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-500 to-blue-900 text-white p-6 text-center'>
         <div>

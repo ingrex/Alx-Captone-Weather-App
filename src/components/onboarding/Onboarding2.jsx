@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import onboarding2 from "../../assets/onboarding2.png"
 
 const Onboarding2 = () => {
+
     const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-500 to-blue-950 text-white p-6 text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-200 to-blue-950 text-white p-6 text-center">
         <img src={onboarding2} alt="weather Icon" className="w-40 h-40 mb-8 rounded-2xl shadow-lg" />
 
 
