@@ -7,11 +7,11 @@ import onboarding1 from "../../assets/logo1.png"
 const Onboarding1 = () => {
 
     const navigate = useNavigate();
-    
+
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-500 to-blue-900 text-white p-6 text-center'>
         <div>
-          <img src={onboarding1} alt="weather illustration" className='text-3xl w-50 font-black mb-8 shadow-lg' />
+          <img src={onboarding1} alt="weather illustration" className='text-3xl w-50 font-black mb-8 shadow-lg rounded-4xl' />
         </div>
         <h1 className="text-3xl font-bold mb-4">Welcome to SkyCast</h1>
         <p className='text-white/90 font-semibold mb-6 text-2x1'>Your ultimate weather companion <br /> stay informed anytime, anywhere.</p>
