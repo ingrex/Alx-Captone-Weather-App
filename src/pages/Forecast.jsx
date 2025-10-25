@@ -53,7 +53,7 @@ const Forecast = () => {
         
 
       <button
-        onClick={() => navigate("/home")}
+        onClick={() => navigate("/Home")}
         className="fixed top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"
       >
         <FiArrowLeft className="text-lg" />

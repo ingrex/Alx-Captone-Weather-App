@@ -6,11 +6,11 @@ const Footer = () => {
 <div className="max-w-screen-lg mx-auto px-4">
     <p className="leading-relaxed">
         Powered by <span>OpenWeather</span> . {""}
-        <span>Skycast</span>&copy; {new Date().getFullYear()}
     </p>
-    <p className="opacity-80 mt-1"> 
-        Capstone Project
+    <p>
+        &copy; {new Date().getFullYear()} SkyCast. All rights reserved.
     </p>
+    
 </div>
 
 </footer>
