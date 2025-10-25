@@ -46,7 +46,7 @@ const Forecast = () => {
 
           <Link
             to="/settings"
-            className="absolute top-5 right-5 text-white text-2xl hover:opacity-80"
+            className="fixed top-5 right-5 text-white text-2xl hover:opacity-80"
           >
             <FiSettings />
           </Link>

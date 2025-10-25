@@ -5,6 +5,7 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const Settings = () => {
     const navigate = useNavigate();
+    const previousPage = location.state?.from;
 
     const [unit, setUnit] = useState(localStorage.getItem ("unit") || "metric");
 
@@ -17,12 +18,21 @@ const Settings = () => {
     window.location.reload();
    };
 
+   {/*Back button handle */}
+
+   const handleBack = () => {
+    if (previousPage) {
+      navigate(previousPage);
+    } else {
+      navigate(-1);
+    }
+   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-200 to-blue-400 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white px-4 transition-all duration-500">
 
         <div className="w-full flex item-center justify-between mb-6 max-w-md">
-            <button onClick={() => navigate("/home")} className="text-2x1 text-gray-800 dark:text-white flex items-center gap-2 hover:opacity-70" >
+            <button onClick={handleBack} className="text-2x1 text-gray-800 dark:text-white flex items-center gap-2 hover:opacity-70" >
                 <FiArrowLeft/> Back
             </button>
             <h1 className="text-2xl font-semibold">Setting</h1>
