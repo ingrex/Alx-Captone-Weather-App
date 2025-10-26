@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { FiSettings } from "react-icons/fi";
 import weatherBg from "../assets/cloudy.gif";
@@ -12,6 +12,7 @@ const Details = () => {
 
     const { city } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
     const unit = localStorage.getItem("unit") || "metric";
     const [weather, setWeather] = useState(null);
@@ -120,7 +121,7 @@ const Details = () => {
             
             <p className="mt-5 text-sm italic text-white/90">{getActivityMessage(weather.weather[0].description)}</p>
 
-            <button onClick={() => navigate(`/forecast/${weather.name}`)} className=" mt-4 bg-black/40 text-white px-3 py-2 rounded-full text-bold">
+            <button onClick={() => navigate(`/forecast/${weather.name}`, { state: { from: location.pathname } })} className=" mt-4 bg-black/40 text-white px-3 py-2 rounded-full text-bold">
                 view Forecast
             </button>
 

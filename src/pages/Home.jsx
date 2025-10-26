@@ -108,11 +108,11 @@ const Home = () => {
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="  Search for a city..."
-        className="w-full pl-4 pr-4 rounded-lg bg-white/20 backdrop-blur-md text-white placeholder-white/70 outline focus:ring-2 focus:ring-blue-400"
+        className="w-full pl-4 pr-4 rounded-lg bg-white/20 backdrop-blur-md text-white placeholder-white/70 outline focus:ring-2 focus:ring-blue-350"
       />
         <button
           type="submit"
-          className="flex items-center outline focus:ring-blue-400 rounded-lg pl-2 pr-2 hover:bg-blue-700 transition"
+          className="flex items-center outline focus:ring-blue-200 rounded-lg pl-2 pr-2 hover:bg-blue-700 transition"
         >
           Search
         </button>
@@ -121,7 +121,7 @@ const Home = () => {
       {/* Use My Location button */}
       <button
         onClick={handleUseMyLocation}
-        className="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-700 transition mb-6"
+        className="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-800 transition mb-6"
       >
         <FiMapPin /> Use My Location
       </button>

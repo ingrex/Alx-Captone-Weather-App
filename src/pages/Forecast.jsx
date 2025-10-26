@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { FiArrowLeft } from "react-icons/fi";
 import { FiSettings } from "react-icons/fi";
@@ -12,6 +12,8 @@ const Forecast = () => {
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
   const [forecast, setForecast] = useState(null);
   const unit = localStorage.getItem("unit") || "metric";
+  const location = useLocation();
+  const previousPage = location.state?.from;
 
   useEffect(() => {
     const fetchForecast = async () => {
@@ -34,6 +36,14 @@ const Forecast = () => {
   const days = forecast.list.filter((_, index) => index % 8 === 0).slice(0, 5);
   const symbol = unit === "metric" ? "C" : "F";
 
+const handleBack = () => {
+  if (location.state?.from) {
+    navigate(location.state.from);
+  } else {
+    navigate(-1);
+  }
+};
+
   return (
     <div
       className="bg-cover bg-no-repeat min-h-screen p-6 text-white"
@@ -53,11 +63,11 @@ const Forecast = () => {
         
 
       <button
-        onClick={() => navigate("/Home")}
+        onClick={handleBack}
         className="fixed top-5 left-5 flex items-center gap-1 bg-black/25 px-3 py-1 text-sm rounded hover:bg-black/40 transition"
       >
         <FiArrowLeft className="text-lg" />
-        <span>Home</span>
+        <span>Back</span>
       </button>
 
       <div className="text-center mt-10">
@@ -116,7 +126,7 @@ const Forecast = () => {
                   <p>{date.toLocaleDateString("en-US", options)}</p>
                 </div>
                 <div>
-                  <p className="font-semibold">{Math.round(day.main.temp)}°</p>
+                  <p className="font-semibold">{Math.round(day.main.temp)}°{unit === "metric" ? "C" : "F"}</p>
                   <p className="text-sm capitalize opacity-90">{day.weather[0].description}</p>
                 </div>
                 

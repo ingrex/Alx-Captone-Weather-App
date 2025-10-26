@@ -8,6 +8,7 @@ const Settings = () => {
     
 
     const [unit, setUnit] = useState(localStorage.getItem ("unit") || "metric");
+    const previousPage = location.state?.from;
 
     {/* Toggle temperture unit */}
 
