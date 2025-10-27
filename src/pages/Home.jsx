@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
 import weatherBg from "../assets/cloudy.gif";
-import AppLogo from "../services/AppLogo";
+import AppLogo from "../general/AppLogo";
 
 
 

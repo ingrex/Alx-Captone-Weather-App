@@ -4,7 +4,7 @@ import axios from "axios";
 import { FiArrowLeft } from "react-icons/fi";
 import { FiSettings } from "react-icons/fi";
 import weatherBg from "../assets/ClearNight1.jpg";
-import AppLogo from "../services/AppLogo";
+import AppLogo from "../general/AppLogo";
 
 const Forecast = () => {
   const { city } = useParams();

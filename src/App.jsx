@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Forecast from "./pages/Forecast";
 import Settings from "./pages/Settings";
-import Footer from "./services/Footer";
+import Footer from "./general/Footer";
 import { useLocation } from "react-router-dom";
 
 

@@ -17,7 +17,7 @@ const Onboarding3 = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          localStorage.setItem("user_lat, latitude");
+          localStorage.setItem("user_lat", latitude);
           localStorage.setItem("user_lon", longitude);
           navigate("/Home");
         },
@@ -47,7 +47,7 @@ const Onboarding3 = () => {
          </div>
        
        {/*Next Button */}
-        <button onClick={() => navigate("/Home")}
+        <button onClick={handleEnableLocation}
              className='bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all'>
                  Enable Location
          </button>

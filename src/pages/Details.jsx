@@ -5,7 +5,7 @@ import { FiSettings } from "react-icons/fi";
 import weatherBg from "../assets/cloudy.gif";
 import { FiHeart } from "react-icons/fi";
 import { FiArrowLeft } from "react-icons/fi";
-import AppLogo from "../services/AppLogo";
+import AppLogo from "../general/AppLogo";
 import Settings from "./Settings";
 
 const Details = () => {
