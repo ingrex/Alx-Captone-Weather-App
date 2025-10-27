@@ -25,7 +25,7 @@ const Details = () => {
         if (condition.includes("rain")) return "Looks rainy -- perfect weather to stay cozy indoor";
         if (condition.includes("cloud")) return "Cloudy Skies - maybe a calm walk outside";
         if (condition.includes("clear")) return "Perfect weather foor outdoor activities";
-        if (condition.includes("snow")) return "Snowy dau - time for some hot chocolate";
+        if (condition.includes("snow")) return "Snowy day - time for some hot chocolate";
         if (condition.includes("storm")) return "Stormy weather - best to stay safe indoors";
         if (condition.includes("storm") || condition.includes("fog")) return "Misty vibes - drive carefully";
         return "Enjoy your day - the weather's unpredictable"
